@@ -1,0 +1,39 @@
+let marks = {
+  shraboni : 80,
+  Tanmoy : 84,
+  Debdatta : 72,
+  Satarupa : 57
+}
+
+for (let i = 0; i < Object.keys(marks).length ; i++) {
+    console.log("The marks of " +  Object.keys(marks)[i] + " is " + marks[Object.keys(marks)[i]])
+}
+
+console.log(Object.keys(marks))
+console.log(marks[Object.keys(marks)])
+
+for(let key in marks){
+  console.log(key + " is " + marks[key])
+}
+
+// Correct number
+let ch = 27
+let i
+while (i != ch) {
+ i = prompt("Enter a number")
+}
+console.log("Number matched " + ch)
+
+// Calculating mean
+const mean =(w,x,y,z)=>{
+  return (w+x+y+z)/4
+}
+
+console.log("mean of the numbers are " + mean(1,2,3,4))
+
+# Iterating with for loop
+let name = 'Shraboni';
+
+for(let i = 0; i<name.length ; i++){
+  console.log(name[i])
+}
