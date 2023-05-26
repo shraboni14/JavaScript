@@ -8,7 +8,7 @@ function onePlusAverage(x,y) {
     return "Hi";
   }
   
-  const sum=(p , q)=>{
+  const sum=(p , q)=>{  // this is a function
     return p+q;
   }
   
