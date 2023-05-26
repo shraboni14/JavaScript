@@ -38,6 +38,6 @@ number.shift()  // It will elemenate(Remove) the first element of the array
 console.log(number)
 
 number.unshift(78)  // It will add the given element in the front of the array. It returns new array length
-console.log(number) 
+console.log(number) // it will display
 
 
