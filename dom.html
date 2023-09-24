@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Dom Manipulation</title>
+</head>
+
+<body>
+    <ul>
+        <li>First Element</li>
+        <li>Second Element</li>
+        <li>Third Element</li>
+    </ul>
+
+    <table border="1px solid black" id="myTable">
+        <tr class="tblRow">
+            <td>1.1</td>
+            <td>2.1</td>
+            <td>3.1</td>
+            <td>4.1</td>
+            <td>5.1</td>
+        </tr>
+
+        <tr class="tblRow">
+            <td>1.2</td>
+            <td>2.2</td>
+            <td>3.2</td>
+            <td>4.2</td>
+            <td>5.2</td>
+        </tr>
+        <tr class="tblRow">
+            <td>1.3</td>
+            <td>2.3</td>
+            <td>3.3</td>
+            <td>4.3</td>
+            <td>5.3</td>
+        </tr>
+
+        <tr class="tblRow">
+            <td>1.4</td>
+            <td>2.4</td>
+            <td>3.4</td>
+            <td>4.4</td>
+            <td>5.4</td>
+        </tr>
+
+        <tr class="tblRow">
+            <td>1.5</td>
+            <td>2.5</td>
+            <td>3.5</td>
+            <td>4.5</td>
+            <td>5.5</td>
+        </tr>
+    </table>
+
+    <script>
+        // Root Node
+        // console.log(document.documentElement)
+        // console.log(document.body)
+        // console.log(document.head)
+
+        // Children
+        // console.log(document.body.childNodes)
+        // console.log(document.body.children)
+        // console.log(document.body.firstElementChild)
+        // console.log(document.body.lastElementChild)
+    </script>
+
+
+    <script>
+        // Get a reference to the table
+        var table = document.getElementById("myTable");
+
+        // Get all the rows in the table
+        var rows = table.getElementsByClassName("tblRow")
+
+        // Loop through the rows and set a different background color for each row
+        for (var i = 0; i < rows.length; i++) {
+            if (i == 0) {
+                rows[i].style.backgroundColor = "red";
+            }
+            if (i == 1) {
+                rows[i].style.backgroundColor = "green";
+            }
+            if (i == 2) {
+                rows[i].style.backgroundColor = "yellow";
+            }
+            if (i == 3) {
+                rows[i].style.backgroundColor = "blue";
+            }
+            if (i == 4) {
+                rows[i].style.backgroundColor = "pink";
+            }
+        }
+    </script>
+</body>
+
+</html>

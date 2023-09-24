@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Counting Program</title>
+</head>
+
+<body>
+    <!-- <button id="countButton">Start Counting</button> -->
+    <input type="text" id="countInput" />
+    <input type="text" id="inp" />
+    <button id="addButton">Add</button>
+
+    <script>
+        // Function to start counting from 1 to 100
+        function countNumbers() {
+            const countInput = document.getElementById('countInput'); // Updated the ID here
+            for (let i = 1; i <= 50; i++) {
+
+                setTimeout(() => {
+                    countInput.value = i;
+                }, i * 100);
+            }
+        }
+
+
+        // const countButton = document.getElementById('countButton');
+        // countButton.addEventListener('click', countNumbers);
+
+        window.onload = countNumbers;
+
+
+        function addValues() {
+            let textbox1 = document.getElementById('countInput');
+            let textbox2 = document.getElementById('inp');
+
+            // Parse the values as integers
+            let value1 = parseInt(countInput.value);
+            let value2 = parseInt(textbox2.value);
+
+            // Check if value2 is a valid number
+            if (!isNaN(value2)) {
+                const sum = value1 + value2;
+                textbox1.value = sum;
+            }
+        }
+
+        const addButton = document.getElementById('addButton');
+        addButton.addEventListener('click', addValues);
+    </script>
+</body>
+
+</html>

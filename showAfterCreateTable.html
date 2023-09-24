@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Data Show</title>
+</head>
+
+<body>
+    <div class="showTable">
+        <table class="table" style="border: 1px solid black;">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Roll</th>
+                </tr>
+            </thead>
+
+            <tbody id="tableBody">
+            </tbody>
+
+        </table>
+    </div>
+
+
+    <script>
+        let myRecord = [
+            {
+                "id": 1,
+                "name": "Shraboni",
+                "Roll": 6
+            },
+            {
+                "id": 2,
+                "name": "Soumita",
+                "Roll": 7
+            }
+        ];
+
+
+        let tableBody = document.getElementById("tableBody");
+
+        // Loop through the array and create table rows and cells
+        for (let i = 0; i < myRecord.length; i++) {
+            let row = tableBody.insertRow(i); // Create a new row
+            let cell1 = row.insertCell(0); // Create a new cell for Id
+            let cell2 = row.insertCell(1); // Create a new cell for Name
+            let cell3 = row.insertCell(2); // Create a new cell for Roll
+
+            // Populate the cells with data from the array
+            cell1.innerHTML = myRecord[i].id;
+            cell2.innerHTML = myRecord[i].name;
+            cell3.innerHTML = myRecord[i].Roll;
+        }
+    </script>
+</body>
+
+</html>

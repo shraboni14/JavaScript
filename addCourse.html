@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <title>Add Course</title>
+
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Navbar</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Features</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Pricing</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container mt-5 col-6">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Course Name" aria-label="Recipient's username"
+                    aria-describedby="button-addon2">
+                <button class="btn btn-outline-success" type="button" id="add_btn">Add Course</button>
+            </div>
+
+            <ul id="parentList" class="list-group">
+                <li class="list-group-item d-flex justify-content-between">
+                    <h6 class="flex-grow-1">Java</h6>
+                    <button class="btn btn-warning mx-3" onclick="editCourse(this)">Edit</button>
+                    <button class="btn btn-danger" onclick="removeCourse(this)">Remove</button>
+                </li>
+
+            </ul>
+        </div>
+
+    </main>
+    <script>
+        let addBtn = document.getElementById('add_btn')
+        addBtn.addEventListener('click', addCourse)
+        let parentList = document.getElementById('parentList');
+
+        function addCourse(event) {
+
+            if (parentList.children[0].className == "emptyMsg") {
+                parentList.children[0].remove();
+            }
+
+            let currentBtn = event.currentTarget;
+            let currentInput = currentBtn.previousElementSibling;
+            let currentCourseName = currentInput.value;
+
+            let newLi = document.createElement('li')
+            // newLi.classList.add('list-group-item')
+            newLi.className = "list-group-item d-flex justify-content-between"
+            newLi.innerHTML = `<h6 class="flex-grow-1">${currentCourseName}</h6>
+                    <button class="btn btn-warning mx-3" onclick="editCourse(this)">Edit</button>
+                    <button class="btn btn-danger" onclick="removeCourse(this)">Remove</button>`
+
+            parentList.appendChild(newLi);
+        }
+
+        function removeCourse(currentElement) {
+            currentElement.parentElement.remove();
+            let parentList = document.getElementById('parentList');
+            if (parentList.children.length <= 0) {
+                let newEmptyMsg = document.createElement("h5")
+                newEmptyMsg.classList.add("emptyMsg");
+                newEmptyMsg.textContent = "Nothing to show... please add course";
+                parentList.appendChild(newEmptyMsg);
+            }
+        }
+
+        function editCourse(currentElement) {
+            if (currentElement.textContent == "Done") {
+                currentElement.textContent == "Edit";
+                let currentCourseName = currentElement.previousElementSibling.value;
+                let currentHeading = document.createElement('h6');
+                currentHeading.className = "flex-grow-1";
+                currentHeading.textContent = currentCourseName
+
+                currentElement.parentElement.replaceChild(currentHeading, currentElement.previousElementSibling)
+
+            } else {
+                currentElement.textContent = "Done";
+                // console.log(currentElement.previousElementSibling)
+                let currentCourseName = currentElement.previousElementSibling.textContent;
+                let currentInput = document.createElement('input');
+                currentInput.type = "text"
+                currentInput.placeholder = "Course Name"
+                currentInput.className = "form-control"
+                currentInput.value = currentCourseName;
+
+                currentElement.parentElement.replaceChild(currentInput, currentElement.previousElementSibling)
+            }
+        }
+
+    </script>
+</body>
+
+</html>

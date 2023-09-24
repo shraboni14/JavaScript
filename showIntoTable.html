@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Show</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+</head>
+
+<body>
+    <div class="showTable">
+        <table class="table table-bordered border-primary">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Roll</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody">
+
+            </tbody>
+        </table>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+
+    <script>
+        let myRecord = [
+            {
+                "id": 1,
+                "name": "Shraboni",
+                "Roll": 6
+            },
+            {
+                "id": 2,
+                "name": "Soumita",
+                "Roll": 7
+            }
+        ];
+
+        // Function to populate the table with data
+        function populateTable() {
+            let tableBody = $('#tableBody');
+
+            // Loop through the myRecord array and append data to the table
+            myRecord.forEach(function (record) {
+                let row = $('<tr>'); // Create a new table row
+
+                // Create table cells for ID, Name, and Roll
+                let idCell = $('<td>').text(record.id);
+                let nameCell = $('<td>').text(record.name);
+                let rollCell = $('<td>').text(record.Roll);
+
+                // Append the cells to the row
+                row.append(idCell, nameCell, rollCell);
+
+                // Append the row to the table body
+                tableBody.append(row);
+            });
+
+
+            let html = '';
+
+            for (let i = 0; i < myRecord.length; i++) {
+
+                html = '<tr>' +
+                    '<td>' + myRecord[i].id + '</td>' +
+                    '<td>' + myRecord[i].name + '</td>' +
+                    '<td>' + myRecord[i].Roll + '</td>' +
+                    '</tr>';
+
+                tableBody.append(html);
+            }
+
+        }
+        populateTable();
+    </script>
+</body>
+
+</html>
